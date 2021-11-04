@@ -1,0 +1,110 @@
+{
+  "home": {
+    "appBar_title": "الرئيسية"
+  },
+  "register": {
+    "continue_with_Email": "أكمل باستخدام الايميل",
+    "appBar_title": "إنشاء حساب",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة السر",
+    "create_account": "إنشاء حساب جديد",
+    "phone": "رقم الهاتف",
+    "checkbox_text": "نعم اريد استلام عروض وخصومات",
+    "terms": "من خلال إنشاء حساب فإنك توافق على الخصوصية وشروط الاستخدام",
+    "first_name": "الإسم الأول",
+    "last_name": "الإسم الأخير",
+    "confirm_password": "تأكيد كلمة السر",
+    "password_match": "من فضلك تأكد من أن كلمتي المرور متشابهتين",
+    "success": "تم التسجيل بنجاح",
+    "choose_area": "اختر المنطقة",
+    "please_choose_area": "الرجاء اختيار منطقة!"
+  },
+  "login": {
+    "appBar_title": "تسجيل الدخول",
+    "continue_with_email": "أكمل باستخدام الإيميل",
+    "forgot_password": "نسيت كلمة المرور؟",
+    "create_account": "إنشاء حساب جديد",
+    "login": "تسجيل الدخول",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة السر",
+    "success": "تم تسجيل الدخول بنجاح",
+    "failed": "البريد الإلكتروني أو كلمة المرور خاطئة"
+  },
+  "forget_password": {
+    "appBar_title": "استعادة الحساب",
+    "reset_your_password": "اعد ضبط كلمه السر",
+    "email": "أدخل البريد الإلكتروني هنا"
+  },
+  "reset_password": {
+    "appBar_title": "إعادة تعيين كلمة المرور",
+    "confirm_new_password": "نأكيد كلمة المرور الجديدة",
+    "confirm": "تأكيد",
+    "new_password": "كلمة المرور الجديدة",
+    "make_sure": "تأكد من أن كلمتي المرور متشابهتين"
+  },
+  "notification": {
+    "appBar_title": "الإشعارات"
+  },
+  "help": {
+    "appBar_title": "المساعدة",
+    "title": "كيف يمكن أن نساعدك؟",
+    "hi": "أهلا"
+  },
+  "settings": {
+    "appBar_title": "الإعدادات",
+    "notifications": "الإشعارات",
+    "lang": "اللغة",
+    "country": "البلد"
+  },
+  "user_details": {
+    "appBar_title": "تفاصيل المستخدم",
+    "email": "البريد الإلكتروني",
+    "phone_number": "رقم الهاتف",
+    "password": "كلمة السر",
+    "edit": "تعديل",
+    "address": "العنوان",
+    "change_password": "تغيير كلمة المرور",
+    "first_name": "الإسم الأول",
+    "last_name": "الإسم الأخير",
+    "security_information": "معلومات الأمان"
+  },
+  "drawer": {
+    "contact_us": "تواصل معنا",
+    "log_out": "تسجيل الخروج",
+    "about_us": "عنّا",
+    "get_help": "المساعدة",
+    "vouchers": "قسائم",
+    "payment": "الدفع",
+    "notifications": "الإشعارات",
+    "offers": "العروض",
+    "your_orders": "طلباتك",
+    "location": "الموقع",
+    "home": "الرئيسية",
+    "profile": "الملف الشخصي",
+    "login": "تسجيل الدخول",
+    "logout": "تسجيل الخروج",
+    "logout_success": "تم تسجيل الخروج بنجاح",
+    "settings": "الإعدادات"
+  },
+  "validation": {
+    "first_name": "لا يجب أن يكون الاسم الاول فارغ",
+    "last_name": "لا يجب أن يكون الاسم الاخير فارغ",
+    "email_empty": "يجب ألا يكون البريد الإلكتروني فارغ",
+    "email_valid": "يرجى إدخال بريد إلكتروني الصحيح",
+    "phone_valid": "يجب أن يتكون رقم الهاتف من 11 رقم",
+    "phone_empty": "يجب ألا يكون الهاتف فارغ",
+    "password_valid": "يجب أن تتكون كلمة المرور من 6 أرقام على الأقل",
+    "password_empty": "يجب ألا تكون كلمة المرور فارغة",
+    "white_space": "لا يمكن أن تحتوي كلمة المرور على مسافة."
+  },
+  "change_password": {
+    "appBar_title": "تغيير كلمة المرور",
+    "change_password": "تغيير كلمة المرور",
+    "old_password": "كلمة السر القديمه",
+    "new_password": "كلمة السرالجديدة",
+    "confirm_new_password": "تأكيد كلمة المرور الجديدة",
+    "password_update_success": "تم تحديث كلمة المرور بنجاح",
+    "wrong_password": "كلمة المرور خاطئة",
+    "some_error": "حدث خطأ ما"
+  }
+}
