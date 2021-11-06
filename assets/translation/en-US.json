@@ -16,8 +16,10 @@
     "confirm_password": "Confirm password",
     "password_match": "Please make sure both passwords match",
     "success": "Register success.",
+    "please_choose_area": "Please choose area!",
     "choose_area": "Choose area",
-    "please_choose_area": "Please choose area!"
+    "please_choose_city": "Please choose city!",
+    "choose_city": "Choose city"
   },
   "login": {
     "appBar_title": "Login",
@@ -28,7 +30,8 @@
     "email": "Email",
     "password": "Password",
     "success": "Login success.",
-    "failed": "Email or password is wrong."
+    "failed": "Email or password is wrong.",
+    "no_account": "Don't have account?"
   },
   "forget_password": {
     "appBar_title": "Recover Account",

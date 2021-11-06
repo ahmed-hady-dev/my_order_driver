@@ -1,8 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 
 import 'package:get_storage/get_storage.dart';
-
-import '../../user_model.dart';
+import 'package:my_order_driver/view/login/model/user_model.dart';
 
 class CacheHelper {
   static final GetStorage _appBox = GetStorage();
