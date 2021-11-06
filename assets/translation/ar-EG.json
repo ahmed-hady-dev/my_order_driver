@@ -69,7 +69,12 @@
     "change_password": "تغيير كلمة المرور",
     "first_name": "الإسم الأول",
     "last_name": "الإسم الأخير",
-    "security_information": "معلومات الأمان"
+    "security_information": "معلومات الأمان",
+    "update": "تحديث",
+    "change_area": "تغيير المنطقة",
+    "your_area": "منطقتك : ",
+    "info_updated": "تم تحديث المعلومات بنجاح.",
+    "image_updated": "تم تحديث الصورة بنجاح."
   },
   "drawer": {
     "contact_us": "تواصل معنا",
@@ -109,5 +114,11 @@
     "password_update_success": "تم تحديث كلمة المرور بنجاح",
     "wrong_password": "كلمة المرور خاطئة",
     "some_error": "حدث خطأ ما"
+  },
+  "change_area": {
+    "appBar_title": "تغيير المنطقة",
+    "area": "المنطقة :",
+    "city": "المدينة :",
+    "area_updated": "تم تحديث المنطقة بنجاح."
   }
 }
