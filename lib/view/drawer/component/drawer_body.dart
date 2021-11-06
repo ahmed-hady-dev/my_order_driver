@@ -8,9 +8,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_order_driver/core/cacheHelper/cache_helper.dart';
 import 'package:my_order_driver/core/router/router.dart';
-import 'package:my_order_driver/view/about/about_view.dart';
 import 'package:my_order_driver/view/drawer/widget/drawer_item.dart';
-import 'package:my_order_driver/view/help/help_view.dart';
 import 'package:my_order_driver/view/home/controller/home_cubit.dart';
 import 'package:my_order_driver/view/home/home_view.dart';
 import 'package:my_order_driver/view/login/login_view.dart';
@@ -47,16 +45,16 @@ class DrawerBody extends StatelessWidget {
                 },
               )
             : const SizedBox(),
-        CacheHelper.isLogged
-            ? DrawerItem(
-                icon: FontAwesomeIcons.clipboardList,
-                text: "drawer.your_orders".tr(),
-                onTap: () {
-                  MagicRouter.pop();
-                  MagicRouter.navigateAndPopUntilFirstPage(const HomeView());
-                },
-              )
-            : const SizedBox(),
+        // CacheHelper.isLogged
+        //     ? DrawerItem(
+        //         icon: FontAwesomeIcons.clipboardList,
+        //         text: "drawer.your_orders".tr(),
+        //         onTap: () {
+        //           MagicRouter.pop();
+        //           MagicRouter.navigateAndPopUntilFirstPage(const HomeView());
+        //         },
+        //       )
+        //     : const SizedBox(),
         CacheHelper.isLogged
             ? DrawerItem(
                 icon: Icons.notifications,
@@ -68,22 +66,22 @@ class DrawerBody extends StatelessWidget {
                 },
               )
             : const SizedBox(),
-        DrawerItem(
-          icon: FontAwesomeIcons.bullhorn,
-          text: "drawer.get_help".tr(),
-          onTap: () {
-            MagicRouter.pop();
-            MagicRouter.navigateAndPopUntilFirstPage(const HelpView());
-          },
-        ),
-        DrawerItem(
-          icon: Icons.info_outline,
-          text: "drawer.about_us".tr(),
-          onTap: () {
-            MagicRouter.pop();
-            MagicRouter.navigateAndPopUntilFirstPage(const AboutView());
-          },
-        ),
+        // DrawerItem(
+        //   icon: FontAwesomeIcons.bullhorn,
+        //   text: "drawer.get_help".tr(),
+        //   onTap: () {
+        //     MagicRouter.pop();
+        //     MagicRouter.navigateAndPopUntilFirstPage(const HelpView());
+        //   },
+        // ),
+        // DrawerItem(
+        //   icon: Icons.info_outline,
+        //   text: "drawer.about_us".tr(),
+        //   onTap: () {
+        //     MagicRouter.pop();
+        //     MagicRouter.navigateAndPopUntilFirstPage(const AboutView());
+        //   },
+        // ),
         CacheHelper.isLogged
             ? BlocBuilder<HomeCubit, HomeState>(
                 builder: (context, state) {
