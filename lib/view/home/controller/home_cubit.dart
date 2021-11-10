@@ -13,11 +13,35 @@ class HomeCubit extends Cubit<HomeState> {
   static HomeCubit get(context) => BlocProvider.of(context);
 //===============================================================
   LogoutModel? logoutModel;
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final alertController = TextEditingController();
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
+//===============================================================
+  //TODO: add send problem message function here
+  sendDeliveryProblem({required String message}) async {}
 //===============================================================
   Future<void> signOut() async {
     emit(LogoutLoadingState());
     final response = await DioHelper.postData(url: logout, data: {});
+    try {
+      logoutModel = LogoutModel.fromJson(response.data);
+      await CacheHelper.signOut();
+      emit(LogoutSuccessState());
+    } on DioError catch (e) {
+      debugPrint(e.error.toString());
+      emit(LogoutErrorState());
+    } catch (e, s) {
+      debugPrint(e.toString());
+      debugPrint(s.toString());
+      emit(LogoutErrorState());
+    }
+  }
+
+//===============================================================
+  Future<void> getOrders() async {
+    emit(LogoutLoadingState());
+    final response = await DioHelper.getData(url: order);
     try {
       logoutModel = LogoutModel.fromJson(response.data);
       await CacheHelper.signOut();

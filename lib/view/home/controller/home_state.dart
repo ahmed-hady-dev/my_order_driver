@@ -5,6 +5,8 @@ abstract class HomeState {}
 
 class HomeInitial extends HomeState {}
 
+class ChangeValidate extends HomeState {}
+
 //===============================================================
 class LogoutLoadingState extends HomeState {}
 

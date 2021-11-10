@@ -1,6 +1,24 @@
 {
   "home": {
-    "appBar_title": "الرئيسية"
+    "appBar_title": "الرئيسية",
+    "state": "الحالة : ",
+    "sub_total": "سعر الطلب : ",
+    "delivery_price": "سعر التوصيل : ",
+    "payment": "طريقة الدفع : ",
+    "notes": "ملاحظات : ",
+    "total_price": "السعر الكلي : ",
+    "egp": "جنيه",
+    "accept": "قبول الطلب",
+    "error": "حدث مشكلة",
+    "deliver": "تسليم",
+    "cancel": "إلغاء",
+    "send": "إرسال",
+    "what_happened": "ماذا حدث؟",
+    "enter_why": "أدخل ما حدث.",
+    "empty": "هذا الحقل لا يمكن ان يكون فارغًا.",
+    "description": "الوصف : ",
+    "price": "السعر : ",
+    "order_details": "تفاصيل الطلب:"
   },
   "register": {
     "continue_with_Email": "أكمل باستخدام الايميل",
@@ -120,5 +138,8 @@
     "area": "المنطقة :",
     "city": "المدينة :",
     "area_updated": "تم تحديث المنطقة بنجاح."
+  },
+  "order": {
+    "appBar_title": "الطلب"
   }
 }

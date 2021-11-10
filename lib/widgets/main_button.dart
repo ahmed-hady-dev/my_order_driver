@@ -5,12 +5,14 @@ class MainButton extends StatelessWidget {
   final VoidCallback onPressed;
   final double height;
   final double width;
+  final TextStyle? style;
   const MainButton({
     Key? key,
     required this.text,
     required this.onPressed,
     this.height = 54.0,
     this.width = double.infinity,
+    this.style,
   }) : super(key: key);
 
   @override
@@ -20,7 +22,11 @@ class MainButton extends StatelessWidget {
       height: height,
       child: ElevatedButton(
         onPressed: onPressed,
-        child: Text(text),
+        child: Text(
+          text,
+          textAlign: TextAlign.center,
+          style: style,
+        ),
       ),
     );
   }

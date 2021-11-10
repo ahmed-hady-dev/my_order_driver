@@ -1,6 +1,24 @@
 {
   "home": {
-    "appBar_title": "Home"
+    "appBar_title": "Home",
+    "state": "State : ",
+    "sub_total": "Order Price : ",
+    "delivery_price": "Delivery price : ",
+    "payment": "Payment : ",
+    "notes": "Notes : ",
+    "total_price": "Total price : ",
+    "egp": "EGP",
+    "accept": "Accept order",
+    "error": "There is a problem",
+    "deliver": "Deliver",
+    "cancel": "Cancel",
+    "send": "Send",
+    "what_happened": "What happened?",
+    "enter_why": "Enter what happened.",
+    "empty": "This field con not be empty.",
+    "description": "Descripton : ",
+    "price": "Price : ",
+    "order_details": "Order details:"
   },
   "register": {
     "continue_with_Email": "Continue with Email",
@@ -120,5 +138,8 @@
     "area": "Area :",
     "city": "City :",
     "area_updated": "Area updated Successfully."
+  },
+  "order": {
+    "appBar_title": "Order"
   }
 }

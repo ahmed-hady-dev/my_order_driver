@@ -28,7 +28,7 @@ class AreaOfCityDropDownButton extends StatelessWidget {
               .map(
                 (area) => DropdownMenuItem<String>(
                   value: area.id.toString(),
-                  child: Text(area.name.toString()),
+                  child: Text(area.storeName.toString()),
                 ),
               )
               .toList(),

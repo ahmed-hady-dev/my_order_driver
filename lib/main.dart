@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_order_driver/view/home/controller/home_cubit.dart';
 import 'package:my_order_driver/view/splash/splash_view.dart';
 import 'core/cacheHelper/cache_helper.dart';
 
@@ -35,19 +34,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => HomeCubit(),
-      child: MaterialApp(
-        title: 'My Order Driver',
-        debugShowCheckedModeBanner: false,
-        navigatorKey: navigatorKey,
-        onGenerateRoute: onGenerateRoute,
-        theme: theme(context),
-        locale: context.locale,
-        supportedLocales: context.supportedLocales,
-        localizationsDelegates: context.localizationDelegates,
-        home: const SplashView(),
-      ),
+    return MaterialApp(
+      title: 'My Order Driver',
+      debugShowCheckedModeBanner: false,
+      navigatorKey: navigatorKey,
+      onGenerateRoute: onGenerateRoute,
+      theme: theme(context),
+      locale: context.locale,
+      supportedLocales: context.supportedLocales,
+      localizationsDelegates: context.localizationDelegates,
+      home: const SplashView(),
     );
   }
 }

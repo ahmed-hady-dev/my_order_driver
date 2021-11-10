@@ -1,62 +1,37 @@
-class OrderModel {
-  final String name;
-  final String totalPrice;
-  final String date;
-  final String address;
-  final String descount;
+class OrdersModel {
+  final String itemName;
+  final String itemImage;
+  final String description;
+  final double price;
 
-  OrderModel({
-    required this.name,
-    required this.totalPrice,
-    required this.date,
-    required this.address,
-    required this.descount,
+  OrdersModel({
+    required this.description,
+    required this.itemName,
+    required this.itemImage,
+    required this.price,
   });
 }
 
-List<OrderModel> recentModelList = [
-  OrderModel(
-    name: 'Ranch Effect Sandwich',
-    totalPrice: 'EGP 15.99',
-    date: '17-9-2021',
-    address: 'El Gallaa Street',
-    descount: 'pasta , Liver',
+List<OrdersModel> ordersModelList = [
+  OrdersModel(
+    itemName: 'Pizza Runch',
+    description: 'Pizza',
+    itemImage:
+        'http://www.inoutdesigners.com/talabat/public/upload/item/1635358717software.jpg',
+    price: 30.0,
   ),
-  OrderModel(
-    name: 'Ranch Effect Sandwich',
-    totalPrice: 'EGP 15.99',
-    date: '17-9-2021',
-    address: 'El Gallaa Street',
-    descount: 'pasta , Liver',
+  OrdersModel(
+    itemName: 'Pizza Runch',
+    description: 'Pizza',
+    itemImage:
+        'http://www.inoutdesigners.com/talabat/public/upload/item/1635358717software.jpg',
+    price: 30.0,
   ),
-  OrderModel(
-    name: 'Ranch Effect Sandwich',
-    totalPrice: 'EGP 15.99',
-    date: '17-9-2021',
-    address: 'El Gallaa Street',
-    descount: 'pasta , Liver',
-  ),
-  OrderModel(
-    name: 'Ranch Effect Sandwich',
-    totalPrice: 'EGP 15.99',
-    date: '17-9-2021',
-    address: 'El Gallaa Street',
-    descount: 'pasta , Liver',
-  ),
-  OrderModel(
-    name: 'Ranch Effect Sandwich',
-    totalPrice: 'EGP 15.99',
-    date: '17-9-2021',
-    address: 'El Gallaa Street',
-    descount: 'pasta , Liver',
-  ),
-];
-List<OrderModel> orderModelList = [
-  OrderModel(
-    name: 'Ranch Effect Sandwich',
-    totalPrice: 'EGP 15.99',
-    date: '17-9-2021',
-    address: 'El Gallaa Street',
-    descount: 'pasta , Liver',
+  OrdersModel(
+    itemName: 'Pizza Runch',
+    description: 'Pizza',
+    itemImage:
+        'http://www.inoutdesigners.com/talabat/public/upload/item/1635358717software.jpg',
+    price: 30.0,
   ),
 ];

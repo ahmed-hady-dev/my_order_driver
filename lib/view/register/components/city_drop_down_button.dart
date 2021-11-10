@@ -28,7 +28,7 @@ class CityDropDownButton extends StatelessWidget {
               .map(
                 (city) => DropdownMenuItem<String>(
                   value: city.id.toString(),
-                  child: Text(city.name.toString()),
+                  child: Text(city.storeName.toString()),
                 ),
               )
               .toList(),

@@ -11,3 +11,4 @@ const String updateImage = '/delivery/update/image';
 const String cities = '/cities';
 const String areas = '/areas';
 const String areasOfCity = '/areas/city/'; //areas/city/1 بتاخد id هنا
+const String order = '/delivery/orders';
