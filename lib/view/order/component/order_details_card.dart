@@ -12,13 +12,19 @@ import 'order_details_row.dart';
 class OrderDetailsCard extends StatelessWidget {
   const OrderDetailsCard({
     Key? key,
-    required this.totalPrice,
-    required this.deliveryFee,
     required this.notes,
+    required this.state,
+    required this.totalPrice,
+    required this.subTotalPrice,
+    required this.deliveryFees,
+    required this.payment,
   }) : super(key: key);
-  final double totalPrice;
-  final double deliveryFee;
   final String notes;
+  final String state;
+  final double totalPrice;
+  final double subTotalPrice;
+  final double deliveryFees;
+  final String payment;
 
   @override
   Widget build(BuildContext context) {
@@ -35,32 +41,27 @@ class OrderDetailsCard extends StatelessWidget {
         children: [
           const OrderDetailsHeader(),
           CardText(
-            text: "home.sub_total".tr() +
-                15.toString() +
-                // orderModel[index].subTotalPrice.toString() +
-                ' ' +
-                "home.egp".tr(),
+            text: "home.state".tr() + state,
             color: Colors.black,
           ),
           CardText(
-            text: "home.delivery_price".tr() +
-                // orderModel[index].deliveryFees.toString()
-                15.toString() +
-                ' ' +
-                "home.egp".tr(),
-            color: Colors.black,
-          ),
-          CardText(
-            text: "home.payment".tr() + 'Cash', color: Colors.black,
+            text: "home.payment".tr() + payment, color: Colors.black,
             // orderModel[index].payment.toString()
           ),
           CardText(
             text: "home.notes".tr() + notes,
             color: Colors.black,
           ),
+          CardText(
+            text: "home.sub_total".tr() +
+                subTotalPrice.toString() +
+                ' ' +
+                "home.egp".tr(),
+            color: Colors.black,
+          ),
           OrderDetailsRow(
             title: "home.delivery_price".tr(),
-            price: deliveryFee,
+            price: deliveryFees,
           ),
           TotalText(totalPrice: totalPrice),
         ],

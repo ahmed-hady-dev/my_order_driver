@@ -14,8 +14,18 @@ class OrderView extends StatelessWidget {
   const OrderView({
     Key? key,
     required this.notes,
+    required this.storeState,
+    required this.totalPrice,
+    required this.subTotalPrice,
+    required this.deliveryFees,
+    required this.payment,
   }) : super(key: key);
   final String notes;
+  final String storeState;
+  final double totalPrice;
+  final double subTotalPrice;
+  final double deliveryFees;
+  final String payment;
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +48,12 @@ class OrderView extends StatelessWidget {
                   ),
                 ),
                 OrderDetailsCard(
-                  totalPrice: 20.0,
-                  deliveryFee: 20.0,
-                  notes: notes,
-                ),
+                    notes: notes,
+                    state: storeState,
+                    totalPrice: totalPrice,
+                    subTotalPrice: subTotalPrice,
+                    deliveryFees: deliveryFees,
+                    payment: payment),
                 isAccepted
                     ? Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

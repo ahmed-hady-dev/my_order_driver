@@ -25,6 +25,7 @@ class HomeOrderCard extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final store = storeModel[index];
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16.0),
       decoration: BoxDecoration(
@@ -32,11 +33,14 @@ class HomeOrderCard extends StatelessWidget {
           border: Border.all(color: AppColors.redColor)),
       child: InkWell(
         onTap: () => MagicRouter.navigateTo(BlocProvider.value(
-          value: cubit,
-          child: OrderView(
-            notes: storeModel[index].notes,
-          ),
-        )),
+            value: cubit,
+            child: OrderView(
+                notes: store.notes,
+                storeState: store.state,
+                totalPrice: store.totalPrice,
+                subTotalPrice: store.subTotalPrice,
+                deliveryFees: store.deliveryFees,
+                payment: store.payment))),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
