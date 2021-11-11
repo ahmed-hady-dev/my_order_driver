@@ -1,4 +1,4 @@
-package com.driver.my.my_order_driver
+package com.my.order.driver
 
 import io.flutter.embedding.android.FlutterActivity
 

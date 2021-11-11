@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.driver.my.my_order_driver">
+    package="com.my.order.driver">
    <application
         android:label="My Order Driver"
         android:name="${applicationName}"
