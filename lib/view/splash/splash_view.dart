@@ -4,6 +4,7 @@ import 'dart:async';
 
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
+import 'package:my_order_driver/constants/constants.dart';
 import 'package:my_order_driver/view/home/home_view.dart';
 import 'package:my_order_driver/view/login/login_view.dart';
 import '../../core/cacheHelper/cache_helper.dart';
@@ -34,6 +35,7 @@ class _SplashViewState extends State<SplashView> {
       MagicRouter.navigateAndPopAll(
           CacheHelper.isLogged ? const HomeView() : const LoginView());
     });
+    checkAvailability();
   }
 
   @override
