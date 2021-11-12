@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:my_order_driver/constants/constants.dart';
 import 'package:my_order_driver/core/cacheHelper/cache_helper.dart';
+import 'package:my_order_driver/core/firebase/firebase_messaging_helper.dart';
 import 'package:my_order_driver/core/router/router.dart';
 import 'package:my_order_driver/view/login/model/user_model.dart';
 import 'package:my_order_driver/view/register/model/area_of_city_model.dart';
@@ -134,10 +135,9 @@ class RegisterCubit extends Cubit<RegisterState> {
     required String password,
     required String passwordConfirm,
     required int registerAreaId,
-    //TODO: add the notifiToken here
-    String? notifiToken,
   }) async {
     emit(RegisterLoadingState());
+    final notifiToken = await FirebaseMessagingHelper.getToken();
     final response = await DioHelper.postData(
       url: signUp,
       data: {

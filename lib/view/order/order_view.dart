@@ -116,26 +116,7 @@ class OrderView extends StatelessWidget {
                     }else if(order.state == 'Delivered' || order.state == 'Canceled' || order.state == 'Cancelled'){
                       return SizedBox();
                     }else{
-                      return Padding(
-                        padding:
-                        const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: MainButton(
-                          onPressed: () {
-                            showProblemAlertDialog(
-                                context: context,
-                                controller: cubit.alertController,
-                                formKey: cubit.formKey,
-                                sendDeliveryMessage: () =>
-                                cubit.deliveryProblem(
-                                  id: order.id!,
-                                    message: cubit
-                                        .alertController.value.text
-                                        .trim()));
-                          },
-                          text: "home.error".tr(),
-                          style: const TextStyle(fontSize: 14.0),
-                        ),
-                      );
+                      return SizedBox();
                     }
                   },
                 ),

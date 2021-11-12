@@ -212,7 +212,7 @@ class RegisterView extends StatelessWidget {
                                             .trim(),
                                         registerAreaId: int.parse(
                                             cubit.areaOfCityDropDownValue!),
-                                        notifiToken: '123456');
+                                        );
                               }
                             },
                           ),
