@@ -12,14 +12,12 @@ import 'order_details_row.dart';
 class OrderDetailsCard extends StatelessWidget {
   const OrderDetailsCard({
     Key? key,
-    required this.notes,
     required this.state,
     required this.totalPrice,
     required this.subTotalPrice,
     required this.deliveryFees,
     required this.payment,
   }) : super(key: key);
-  final String notes;
   final String state;
   final double totalPrice;
   final double subTotalPrice;
@@ -48,10 +46,10 @@ class OrderDetailsCard extends StatelessWidget {
             text: "home.payment".tr() + payment, color: Colors.black,
             // orderModel[index].payment.toString()
           ),
-          CardText(
-            text: "home.notes".tr() + notes,
-            color: Colors.black,
-          ),
+          // CardText(
+          //   text: "home.notes".tr() + notes,
+          //   color: Colors.black,
+          // ),
           CardText(
             text: "home.sub_total".tr() +
                 subTotalPrice.toString() +

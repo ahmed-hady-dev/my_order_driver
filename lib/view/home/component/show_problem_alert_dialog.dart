@@ -18,7 +18,6 @@ showProblemAlertDialog({
     child: Text("home.send".tr()),
     onPressed: () {
       if (formKey.currentState!.validate()) {
-        debugPrint(controller.value.text);
         sendDeliveryMessage();
       }
     },

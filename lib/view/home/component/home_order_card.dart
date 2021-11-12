@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_order_driver/constants/app_colors.dart';
 import 'package:my_order_driver/core/router/router.dart';
 import 'package:my_order_driver/view/home/controller/home_cubit.dart';
+import 'package:my_order_driver/view/home/model/orders_model.dart';
 import 'package:my_order_driver/view/home/widgets/card_text.dart';
 import 'package:my_order_driver/view/home/widgets/total_price_text.dart';
 import 'package:my_order_driver/view/order/order_view.dart';
@@ -13,19 +14,14 @@ import 'package:my_order_driver/view/order/order_view.dart';
 import '../model/store_model.dart';
 
 class HomeOrderCard extends StatelessWidget {
-  final List<StoreModel> storeModel;
-  final int index;
   final HomeCubit cubit;
-
+  final Datum order;
   const HomeOrderCard({
     Key? key,
-    required this.storeModel,
-    required this.index,
-    required this.cubit,
+    required this.cubit, required this.order,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final store = storeModel[index];
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16.0),
       decoration: BoxDecoration(
@@ -34,13 +30,7 @@ class HomeOrderCard extends StatelessWidget {
       child: InkWell(
         onTap: () => MagicRouter.navigateTo(BlocProvider.value(
             value: cubit,
-            child: OrderView(
-                notes: store.notes,
-                storeState: store.state,
-                totalPrice: store.totalPrice,
-                subTotalPrice: store.subTotalPrice,
-                deliveryFees: store.deliveryFees,
-                payment: store.payment))),
+            child: OrderView(order: order))),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -53,22 +43,20 @@ class HomeOrderCard extends StatelessWidget {
                       topLeft: Radius.circular(8.0)),
                   image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: NetworkImage(storeModel[index].storeImage))),
+                      image: NetworkImage(order.store!.image!))),
             ),
             const SizedBox(height: 4),
             CardText(
-              text: storeModel[index].storeName,
+              text: order.store!.name!,
               color: Colors.black,
               fontSize: 18,
               fontWeight: FontWeight.bold,
             ),
             CardText(
-                text: "home.state".tr() + storeModel[index].state.toString()),
-            CardText(
-                text: "home.notes".tr() + storeModel[index].notes.toString()),
+                text: "home.state".tr() + order.state!),
             TotalPriceText(
               text: "home.total_price".tr() +
-                  storeModel[index].totalPrice.toString() +
+                  order.total!.toString() +
                   ' ' +
                   "home.egp".tr(),
             ),

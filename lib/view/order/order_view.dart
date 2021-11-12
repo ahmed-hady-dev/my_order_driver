@@ -8,28 +8,18 @@ import 'package:my_order_driver/view/home/controller/home_cubit.dart';
 import 'package:my_order_driver/view/home/model/orders_model.dart';
 import 'package:my_order_driver/view/order/component/order_details_card.dart';
 import 'package:my_order_driver/view/order/widgets/order_card.dart';
+import 'package:my_order_driver/widgets/loading_indicator.dart';
 import 'package:my_order_driver/widgets/main_button.dart';
 
 class OrderView extends StatelessWidget {
   const OrderView({
-    Key? key,
-    required this.notes,
-    required this.storeState,
-    required this.totalPrice,
-    required this.subTotalPrice,
-    required this.deliveryFees,
-    required this.payment,
+    Key? key, required this.order,
+
   }) : super(key: key);
-  final String notes;
-  final String storeState;
-  final double totalPrice;
-  final double subTotalPrice;
-  final double deliveryFees;
-  final String payment;
+  final Datum order;
 
   @override
   Widget build(BuildContext context) {
-    bool isAccepted = true;
     return SafeArea(
       child: BlocBuilder<HomeCubit, HomeState>(
         builder: (context, state) {
@@ -38,32 +28,63 @@ class OrderView extends StatelessWidget {
             appBar: AppBar(title: Text("order.appBar_title".tr())),
             body: ListView(
               children: [
+                if(order.items != null && order.items!.isNotEmpty)
                 ListView.builder(
-                  itemCount: ordersModelList.length,
+                  itemCount: order.items!.length,
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  itemBuilder: (context, index) => OrderCard(
-                    index: index,
-                    orderModel: ordersModelList,
-                  ),
+                  itemBuilder: (context, index) => OrderCard(item: order.items![index],),
                 ),
                 OrderDetailsCard(
-                    notes: notes,
-                    state: storeState,
-                    totalPrice: totalPrice,
-                    subTotalPrice: subTotalPrice,
-                    deliveryFees: deliveryFees,
-                    payment: payment),
-                isAccepted
-                    ? Row(
+                    state: order.state!,
+                    totalPrice: order.total!,
+                    subTotalPrice: order.subTotal!,
+                    deliveryFees: order.deliveryFees == null ? 0.0 : order.deliveryFees!,
+                    payment: order.payment!),
+                state is OrderLoading ? LoadingIndicator() : Builder(
+                  builder: (context) {
+                    if(order.state == 'Ordered' || order.state == 'Preparing'){
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        child: MainButton(
+                          onPressed: () => cubit.accept(order.id!),
+                          text: "home.accept".tr(),
+                        ),
+                      );
+                    }else if(order.state == 'Accepted'){
+                      return Row(
+                        children: [
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                              child: MainButton(
+                                onPressed: () => cubit.onDelivery(order.id!),
+                                text: 'On Delivery',
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                              child: MainButton(
+                                // TODO: Phone number of client
+                                onPressed: () => cubit.callClient(order.delivery!.phone!),
+                                text: 'Call',
+                              ),
+                            ),
+                          ),
+                        ],
+                      );
+                    }else if(order.state == 'OnDelivery'){
+                      return Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Expanded(
                             child: Padding(
                               padding:
-                                  const EdgeInsets.symmetric(horizontal: 8.0),
+                              const EdgeInsets.symmetric(horizontal: 8.0),
                               child: MainButton(
-                                  onPressed: () {},
+                                  onPressed: () => cubit.delivered(order.id!),
                                   text: "home.deliver".tr(),
                                   style: const TextStyle(fontSize: 14.0)),
                             ),
@@ -71,18 +92,19 @@ class OrderView extends StatelessWidget {
                           Expanded(
                             child: Padding(
                               padding:
-                                  const EdgeInsets.symmetric(horizontal: 8.0),
+                              const EdgeInsets.symmetric(horizontal: 8.0),
                               child: MainButton(
                                 onPressed: () {
                                   showProblemAlertDialog(
                                       context: context,
                                       controller: cubit.alertController,
                                       formKey: cubit.formKey,
-                                      sendDeliveryMessage:
-                                          cubit.sendDeliveryProblem(
-                                              message: cubit
-                                                  .alertController.value.text
-                                                  .trim()));
+                                      sendDeliveryMessage: ()=>
+                                      cubit.deliveryProblem(
+                                          id: order.id!,
+                                          message: cubit
+                                              .alertController.value.text
+                                              .trim()));
                                 },
                                 text: "home.error".tr(),
                                 style: const TextStyle(fontSize: 14.0),
@@ -90,14 +112,33 @@ class OrderView extends StatelessWidget {
                             ),
                           ),
                         ],
-                      )
-                    : Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      );
+                    }else if(order.state == 'Delivered' || order.state == 'Canceled' || order.state == 'Cancelled'){
+                      return SizedBox();
+                    }else{
+                      return Padding(
+                        padding:
+                        const EdgeInsets.symmetric(horizontal: 8.0),
                         child: MainButton(
-                          onPressed: () {},
-                          text: "home.accept".tr(),
+                          onPressed: () {
+                            showProblemAlertDialog(
+                                context: context,
+                                controller: cubit.alertController,
+                                formKey: cubit.formKey,
+                                sendDeliveryMessage: () =>
+                                cubit.deliveryProblem(
+                                  id: order.id!,
+                                    message: cubit
+                                        .alertController.value.text
+                                        .trim()));
+                          },
+                          text: "home.error".tr(),
+                          style: const TextStyle(fontSize: 14.0),
                         ),
-                      ),
+                      );
+                    }
+                  },
+                ),
                 const SizedBox(height: 8.0),
               ],
             ),

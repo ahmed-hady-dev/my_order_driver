@@ -11,17 +11,15 @@ import '../../../widgets/restaurant_name.dart';
 class OrderCard extends StatelessWidget {
   const OrderCard({
     Key? key,
-    required this.index,
-    required this.orderModel,
+    required this.item,
   }) : super(key: key);
-  final int index;
-  final List<OrdersModel> orderModel;
+  final Item item;
   @override
   Widget build(BuildContext context) {
-    String image = orderModel[index].itemImage;
-    String name = orderModel[index].itemName;
-    String description = orderModel[index].itemName;
-    double price = orderModel[index].price;
+    String image = item.image!;
+    String name = item.name!;
+    String description = item.description!;
+    double price = item.pivot!.price!;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       child: Container(
