@@ -21,7 +21,7 @@ class LoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(title: Text("login.appBar_title".tr())),
+        // appBar: AppBar(title: Text("login.appBar_title".tr())),
         body: BlocProvider(
           create: (context) => LoginCubit(),
           child: BlocConsumer<LoginCubit, LoginState>(
@@ -76,13 +76,13 @@ class LoginView extends StatelessWidget {
                             onPressed: () async {
                               if (cubit.formKey.currentState!.validate()) {
                                 cubit.userLogin(
-                                    email: cubit.emailController.text
-                                        .toLowerCase()
-                                        .trim(),
-                                    password: cubit.passwordController.text
-                                        .toLowerCase()
-                                        .trim(),
-                                    );
+                                  email: cubit.emailController.text
+                                      .toLowerCase()
+                                      .trim(),
+                                  password: cubit.passwordController.text
+                                      .toLowerCase()
+                                      .trim(),
+                                );
                               }
                             },
                           ),
